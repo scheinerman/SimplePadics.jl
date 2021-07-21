@@ -1,5 +1,5 @@
-name = "SimplePadic"
-uuid = "ace0dc1f-4b04-4dd6-8036-baf16b2183e6"
+name = "SimplePadics"
+uuid = "2edc7d5a-420c-455a-9f50-96c88fa4f765"
 authors = ["Ed Scheinerman <ers@jhu.edu>"]
 version = "0.1.0"
 
