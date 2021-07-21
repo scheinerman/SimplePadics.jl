@@ -102,7 +102,6 @@ set the precision to the default value (10).
 
 The function `get_precision()` returns the current setting.
 
-The precision under which a `Padic` number `a` was created can be found using `precision(a)`.
 
 **Warning**: `Padic` numbers created with different precisions cannot be compared for equality or combined in operations.
 ```julia
@@ -117,12 +116,6 @@ julia> b = Padic{5}(-1)
 
 julia> a == b
 ERROR: Incompatible padic rings in padic operation
-
-julia> precision(a)
-10
-
-julia> precision(b)
-20
 ```
 
 

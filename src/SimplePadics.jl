@@ -3,7 +3,6 @@ module SimplePadics
 using Base: String, prec_arrow, get_preferences
 using Nemo
 
-
 _PF = PadicField
 
 export Padic, Dyadic
@@ -13,11 +12,21 @@ _PREC = _DEFAULT_PRECISION    # standard precision for p-adic numbers
 
 export set_precision, get_precision
 
+""" 
+    set_precision(prec::Integer)
+Controls the number of digits of precision for `Padic` numbers. 
+Without an argument, set the precision to a default value (`_DEFAULT_PRECISION`).
+"""
 function set_precision(prec::Integer = _DEFAULT_PRECISION)
     @assert prec > 1 "Precision must be set to 2 or higher"
     global _PREC = prec
 end
 
+
+"""
+    get_precision() 
+Return the number of digits of precision for `Padic` numbers. 
+"""
 get_precision() = _PREC
 
 """

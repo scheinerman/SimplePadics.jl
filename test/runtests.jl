@@ -29,3 +29,6 @@ s = string(x)
 a = Padic{17}(1000)
 d = digits(a)
 @test d[1] + 17 * d[2] + 17^2 * d[3] == 1000
+
+set_precision(20)
+@test get_precision() == 20
