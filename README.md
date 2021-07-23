@@ -60,9 +60,6 @@ julia> inv(a)
 …462046205_{7}
 ```
 
-
-
-
 ### Digits
 
 If the prime `p` is greater than 7, then we use letters to stand for digits beyond 9 (that is, a for ten, b for eleven, and so forth).
@@ -91,8 +88,6 @@ julia> valuation(a)
 -2
 ```
 
-
-
 ## Adjusting Precision
 
 The precision of `Padic` numbers is globally controlled using the functions `set_precision` and `get_precision`.
@@ -117,7 +112,6 @@ julia> b = Padic{5}(-1)
 julia> a == b
 ERROR: Incompatible padic rings in padic operation
 ```
-
 
 ## Functions
 
@@ -149,7 +143,6 @@ julia> valuation(1/a)
 
 Matrices/vectors populated with `Padic` numbers can be used in the `LinearAlgebraX`
 module. Some examples here:
-
 
 ```julia
 julia> using LinearAlgebraX
@@ -205,11 +198,11 @@ julia> nullspacex(A[1:3,:])
 
 ## To Do List
 
-### Promotion rules
+### Promotion Rules
 
-Arithmetic that mixes `Padic` with `Integer` or `Rational` is coded without the use of promotion rules. I need to learn how those work and re-implement arithmetic accordingly.
+Arithmetic that mixes `Padic` numbers with `Integer` or `Rational` numbers is coded without the use of promotion rules. I need to learn how those work and re-implement arithmetic accordingly.
 
-### Accessing the `Nemo` underlying data
+### Accessing the `Nemo` Underlying Data
 
 I should provide a way to access the underlying data element of type `padic` (from Nemo). A `Padic` number is a `struct` with only one field, `x::padic`. So for now, one can get that value by just using `a.x` where `a` is a `Padic`.
 ```julia
