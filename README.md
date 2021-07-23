@@ -205,6 +205,10 @@ julia> nullspacex(A[1:3,:])
 
 ## To Do List
 
+### Promotion rules
+
+Arithmetic that mixes `Padic` with `Integer` or `Rational` is coded without the use of promotion rules. I need to learn how those work and re-implement arithmetic accordingly.
+
 ### Accessing the `Nemo` underlying data
 
 I should provide a way to access the underlying data element of type `padic` (from Nemo). A `Padic` number is a `struct` with only one field, `x::padic`. So for now, one can get that value by just using `a.x` where `a` is a `Padic`.
