@@ -155,7 +155,7 @@ julia> A = rand(Int,5,5) .% 10  # create a random matrix with entries between -9
   0   7  -6  -5   8
   0  -5   6  -2  -6
 
-julia> A = Padic{5}.(A)  # convert those values to Padic numbers
+julia> A = Padic{5}.(A)  # convert those values to 5-adic numbers
 5×5 Matrix{Padic{5}}:
  …4444444431_{5}  …44444444440_{5}  …4444444441_{5}   …4444444431_{5}  …4444444432_{5}
           …0_{5}   …4444444444_{5}          …14_{5}   …4444444442_{5}          …13_{5}
