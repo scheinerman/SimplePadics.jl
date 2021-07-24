@@ -215,5 +215,17 @@ julia> a.x
 
 ### Compatibility with `SimplePolynomials`
 
-The numbers in this module do not work with my `SimplePolynomials` module. That should be fixable (I hope!).
+The numbers in this module do not work with my `SimplePolynomials` module. That should be fixable (I hope!). `SimplePadic` numbers do work with the `Polynomials` module:
+```
+julia> using SimplePadics, Polynomials
+
+julia> p = Polynomial(Padic{5}.(1:5))
+Polynomial(…1_{5} + …2_{5}*x + …3_{5}*x^2 + …4_{5}*x^3 + …10_{5}*x^4)
+
+julia> p(Padic{5}(1))
+…30_{5}
+```
+
+However, evaluating `p(1)` doesn't work (probably because I need to work on promotion rules).
+
 
