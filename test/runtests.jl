@@ -24,7 +24,7 @@ y = exp(5x)
 
 s = string(x)
 @test s[1] == '…'
-@test s[end-5] == '4'
+@test s[end-5:end] == ".0_{5}"
 
 a = Padic{17}(1000)
 d = digits(a)

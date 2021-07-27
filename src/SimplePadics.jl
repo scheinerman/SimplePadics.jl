@@ -93,7 +93,9 @@ function padic2str(a::padic)::String
         end
     end
 
-    return prefix * digs
+    suffix = valuation(a) >= 0 ? ".0" : ""
+
+    return prefix * digs * suffix
 end
 
 function padic2str(a::Padic{P})::String where {P}
