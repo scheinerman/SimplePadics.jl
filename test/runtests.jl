@@ -13,7 +13,7 @@ y = sqrt(x)
 @test x + 1 == 0
 @test x - 1 == -Padic{5}(2)
 @test valuation(x) == 0
-@test valuation(x // 5) == -1
+@test valuation(x / 5) == -1
 @test valuation(5x) == 1
 @test characteristic(x) == 5
 

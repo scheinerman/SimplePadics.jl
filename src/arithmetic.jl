@@ -1,32 +1,24 @@
 import Base: (+), (-), (*), (//), (/), (==), hash
 
-_QZ = Union{Integer,Rational}
 
 (+)(a::Padic{P}, b::Padic{P}) where {P} = Padic(a.x + b.x)
-(+)(a::Padic{P}, b::_QZ) where {P} = a + Padic{P}(b)
-(+)(a::_QZ, b::Padic{P}) where {P} = b + a
 
 (-)(a::Padic{P}) where {P} = Padic(-(a.x))
 
 (-)(a::Padic{P}, b::Padic{P}) where {P} = a + (-b)
-(-)(a::Padic{P}, b::_QZ) where {P} = a - Padic{P}(b)
-(-)(a::_QZ, b::Padic{P}) where {P} = a + (-b)
 
 (*)(a::Padic{P}, b::Padic{P}) where {P} = Padic(a.x * b.x)
-(*)(a::Padic{P}, b::_QZ) where {P} = a * Padic{P}(b)
-(*)(a::_QZ, b::Padic{P}) where {P} = b * a
-
-(//)(a::Padic{P}, b::Padic{P}) where {P} = Padic(a.x // b.x)
-(//)(a::Padic{P}, b::_QZ) where {P} = a // Padic{P}(b)
-(//)(a::_QZ, b::Padic{P}) where {P} = Padic{P}(a) // b
 
 (/)(a::Padic{P}, b::Padic{P}) where {P} = Padic(a.x // b.x)
-(/)(a::Padic{P}, b::_QZ) where {P} = a // Padic{P}(b)
-(/)(a::_QZ, b::Padic{P}) where {P} = Padic{P}(a) // b
 
-(==)(a::Padic{P}, b::Padic{P}) where {P} = a.x == b.x
-(==)(a::Padic{P}, b::_QZ) where {P} = a == Padic{P}(b)
-(==)(a::_QZ, b::Padic{P}) where {P} = b == a
+(==)(a::Padic{P}, b::Padic{Q}) where {P,Q} = (P == Q) && (a.x == b.x)
+
+import Base: promote_rule
+
+promote_rule(::Type{Padic{P}}, ::Type{T}) where {P,T<:Integer} = Padic{P}
+promote_rule(::Type{Padic{P}}, ::Type{T}) where {P,T<:Rational} = Padic{P}
+
+
 
 hash(a::Padic{P}, h::UInt64) where {P} = hash(a.x, h)
 hash(a::Padic{P}) where {P} = hash(a.x)

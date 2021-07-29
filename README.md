@@ -60,6 +60,8 @@ julia> inv(a)
 …462046205.0_{7}
 ```
 
+**Note**: Just as real numbers are an extension of the rationals, so are p-adic numbers. Therefore, just as exact division `//` does not apply to `Float` numbers, we do not define `//` for `Padic` values. This is in contrast to `Nemo` in which `//` is defined for `padic` numbers.
+
 ### Digits
 
 If the prime `p` is greater than 7, then we use letters to stand for digits beyond 9 (that is, a for ten, b for eleven, and so forth).
@@ -198,9 +200,7 @@ julia> nullspacex(A[1:3,:])
 
 ## To Do List
 
-### Promotion Rules
-
-Arithmetic that mixes `Padic` numbers with `Integer` or `Rational` numbers is coded without the use of promotion rules. I need to learn how those work and re-implement arithmetic accordingly.
+These are low priority items; they might never get attention. 
 
 ### Accessing the `Nemo` Underlying Data
 
