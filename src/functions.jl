@@ -7,17 +7,17 @@ Return the number of digits of precision in `a`
 """
 precision(a::Padic) = a.x.parent.prec_max
 
+import Nemo: valuation, base
 
-export characteristic
+export base
 """
-    characteristic(a::Padic)
+    base(a::Padic)
 
 Return the prime number `p` for this `p`-adic number.
 """
-characteristic(a::Padic{P}) where {P} = P
+base(a::Padic{P}) where {P} = P
 
 
-import Nemo: valuation
 export valuation
 valuation(a::Padic) = valuation(a.x)
 

@@ -31,12 +31,12 @@ julia> Dyadic(1//10)
 
 
 
-The function `characteristic` returns `p` for numbers of type `Padic{p}`:
+The function `base` returns `p` for numbers of type `Padic{p}`:
 ```julia
 julia> a = Padic{7}(100//49)
 …2.02_{7}
 
-julia> characteristic(a)
+julia> base(a)
 7
 ```
 
@@ -193,39 +193,5 @@ julia> nullspacex(A[1:3,:])
           …0.0_{5}           …1.0_{5}
 ```
 
-
-
-
-<hr>
-
-## To Do List
-
-These are low priority items; they might never get attention. 
-
-### Accessing the `Nemo` Underlying Data
-
-I should provide a way to access the underlying data element of type `padic` (from Nemo). A `Padic` number is a `struct` with only one field, `x::padic`. So for now, one can get that value by just using `a.x` where `a` is a `Padic`.
-```julia
-julia> a = Padic{17}(1000)
-…37e.0_{17}
-
-julia> a.x
-14*17^0 + 7*17^1 + 3*17^2 + O(17^10)
-```
-
-### Compatibility with `SimplePolynomials`
-
-The numbers in this module do not work with my `SimplePolynomials` module. That should be fixable (I hope!). `SimplePadic` numbers do work with the `Polynomials` module:
-```
-julia> using SimplePadics, Polynomials
-
-julia> p = Polynomial(Padic{5}.(1:5))
-Polynomial(…1.0_{5} + …2.0_{5}*x + …3.0_{5}*x^2 + …4.0_{5}*x^3 + …10.0_{5}*x^4)
-
-julia> p(Padic{5}(1))
-…30.0_{5}
-```
-
-However, evaluating `p(1)` doesn't work (probably because I need to work on promotion rules).
 
 

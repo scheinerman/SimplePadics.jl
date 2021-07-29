@@ -15,7 +15,7 @@ y = sqrt(x)
 @test valuation(x) == 0
 @test valuation(x / 5) == -1
 @test valuation(5x) == 1
-@test characteristic(x) == 5
+@test base(x) == 5
 
 y = exp(5x)
 @test log(y) == -5
