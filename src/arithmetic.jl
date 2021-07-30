@@ -19,6 +19,9 @@ promote_rule(::Type{Padic{P}}, ::Type{T}) where {P,T<:Integer} = Padic{P}
 promote_rule(::Type{Padic{P}}, ::Type{T}) where {P,T<:Rational} = Padic{P}
 
 
+(//)(a::Padic, b::Number) = a / b
+(//)(a::Number, b::Padic) = a / b
+(//)(a::Padic, b::Padic) = a / b
 
 hash(a::Padic{P}, h::UInt64) where {P} = hash(a.x, h)
 hash(a::Padic{P}) where {P} = hash(a.x)

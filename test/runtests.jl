@@ -16,6 +16,9 @@ y = sqrt(x)
 @test valuation(x / 5) == -1
 @test valuation(5x) == 1
 @test base(x) == 5
+@test x // 5 == x / 5
+@test x / x == 1
+@test x // x == Padic{5}(1)
 
 y = exp(5x)
 @test log(y) == -5
