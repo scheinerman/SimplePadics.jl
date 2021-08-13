@@ -140,6 +140,12 @@ julia> 1/a
 
 julia> valuation(1/a)
 -3
+
+julia> abs(a)
+0.008
+
+julia> abs(1/a)
+125.0
 ```
 
 ## Compatability with `LinearAlgebraX`

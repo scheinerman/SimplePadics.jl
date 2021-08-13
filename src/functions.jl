@@ -21,8 +21,16 @@ base(a::Padic{P}) where {P} = P
 export valuation
 valuation(a::Padic) = valuation(a.x)
 
-import Base: sqrt, exp, log
+import Base: sqrt, exp, log, abs
 
 sqrt(a::Padic) = Padic(sqrt(a.x))
 exp(a::Padic) = Padic(exp(a.x))
 log(a::Padic) = Padic(log(a.x))
+
+function abs(a::Padic{P}) where {P} 
+    if a == 0
+        return 0.0
+    end
+    return Float64(P)^(-valuation(a))
+end
+
