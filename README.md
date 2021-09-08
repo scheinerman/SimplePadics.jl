@@ -148,6 +148,33 @@ julia> abs(1/a)
 125.0
 ```
 
+## Roots of Polynomials
+
+Let `F` be a `SimplePolynomial` with integer or rational coefficients. The function `p_root(F,p)` returns a `p`-adic root of `F` (if one exists) or throws an error otherwise.
+```julia
+julia> using SimplePadics, SimplePolynomials
+
+julia> x = getx()
+x
+
+julia> F = x^2 + 1
+1 + x^2
+
+julia> t = p_root(F,5)
+…3032431212.0_{5}
+
+julia> t^2 + 1
+…0.0_{5}
+
+julia> sqrt(Padic{5}(-1))
+…3032431212.0_{5}
+```
+The function `has_p_root(F,p)` tests if a polynomial has a `p`-adic root. Note that this
+function returns a 2-tuple whose first element is `true` if `F` has a root and `false` otherwise.
+The other value in the 2-tuple is used by `p_root` and may be ignored. 
+
+
+
 ## Compatability with `LinearAlgebraX`
 
 Matrices/vectors populated with `Padic` numbers can be used in the `LinearAlgebraX`

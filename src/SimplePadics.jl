@@ -1,7 +1,7 @@
 module SimplePadics
 
 using Base: String, prec_arrow, get_preferences
-using Nemo
+using Nemo, SimplePolynomials
 
 _PF = PadicField
 
@@ -134,5 +134,6 @@ end
 
 include("arithmetic.jl")
 include("functions.jl")
+include("hensel.jl")
 
 end # module

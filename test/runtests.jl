@@ -1,4 +1,4 @@
-using Test, SimplePadics
+using Test, SimplePadics, SimplePolynomials
 
 
 x = Padic{5}(-1)
@@ -37,6 +37,13 @@ set_precision(20)
 @test get_precision() == 20
 
 a = Padic{5}(100)
-@test abs(a) == 1/25
+@test abs(a) == 1 / 25
 @test abs(a) == abs(-a)
 @test abs(0a) == 0
+
+
+x = getx()
+F = x^2 + 1
+@test has_p_root(F, 5)[1]
+t = p_root(F, 5)
+@test F(t) == 0
