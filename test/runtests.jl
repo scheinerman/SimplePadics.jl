@@ -37,9 +37,9 @@ set_precision(20)
 @test get_precision() == 20
 
 a = Padic{5}(100)
-@test abs(a) == 1 / 25
+@test abs(1 / a) == 25
 @test abs(a) == abs(-a)
-@test abs(0a) == 0
+@test abs(0 * a) == 0
 
 
 x = getx()
