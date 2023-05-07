@@ -12,7 +12,7 @@ Everything rides on
 
 This module provides the type `Padic{p}` to represent `p`-adic numbers (for prime `p`).
 Numbers of this sort are created either with `Integer` or `Rational` arguments:
-```julia
+```
 julia> using SimplePadics
 
 julia> Padic{5}(82)
@@ -24,7 +24,7 @@ julia> Padic{5}(1//15)
 
 
 For `p` equal to `2` we have the abbreviation `Dyadic` that is exacly equivalent to `Padic{2}`.
-```julia
+```
 julia> Dyadic(1//10)
 …1100110.1_{2}
 ```
@@ -32,7 +32,7 @@ julia> Dyadic(1//10)
 
 
 The function `base` returns `p` for numbers of type `Padic{p}`:
-```julia
+```
 julia> a = Padic{7}(100//49)
 …2.02_{7}
 
@@ -43,7 +43,7 @@ julia> base(a)
 ### Arithmetic
 
 The standard arithmetic operations (addition, subtraction, multiplication, division) may be performed with arguments that are both of the same `p`-adic type, or a mixture of a `p`-adic and an `Integer` or `Rational`. Some examples:
-```julia
+```
 julia> a = Padic{7}(10)
 …13.0_{7}
 
@@ -66,7 +66,7 @@ julia> inv(a)
 ### Digits
 
 If the prime `p` is greater than 7, then we use letters to stand for digits beyond 9 (that is, a for ten, b for eleven, and so forth).
-```julia
+```
 julia> a = Padic{17}(1000)
 …37e.0_{17}
 
@@ -75,7 +75,7 @@ julia> 3 * 17^2 + 7 * 17 + 14
 ```
 
 To get the digits as a list of integers, use `digits(a)`. The first entry in the result is the most significant digit (rightmost).
-```julia
+```
 julia> a = Padic{7}(124//49)
 …2.35_{7}
 
@@ -86,7 +86,7 @@ julia> digits(a)
  2
 ```
 See `valuation` to determine the location of the radix point. 
-```julia
+```
 julia> valuation(a)
 -2
 ```
@@ -102,7 +102,7 @@ The function `get_precision()` returns the current setting.
 
 
 **Warning**: `Padic` numbers created with different precisions cannot be compared for equality or combined in operations.
-```julia
+```
 julia> a = Padic{5}(-1)
 …4444444444.0_{5}
 
@@ -119,7 +119,7 @@ ERROR: Incompatible padic rings in padic operation
 ## Functions
 
 The functions `sqrt`, `exp`, `log`, and `valuation` from Nemo are imported into this module. For example:
-```julia
+```
 julia> a = Padic{5}(-1)
 …4444444444.0_{5}
 
@@ -151,7 +151,7 @@ julia> abs(1/a)
 ## Roots of Polynomials
 
 Let `F` be a `SimplePolynomial` with integer or rational coefficients. The function `p_root(F,p)` returns a `p`-adic root of `F` (if one exists) or throws an error otherwise.
-```julia
+```
 julia> using SimplePadics, SimplePolynomials
 
 julia> x = getx()
@@ -180,7 +180,7 @@ The other value in the 2-tuple is used by `p_root` and may be ignored.
 Matrices/vectors populated with `Padic` numbers can be used in the `LinearAlgebraX`
 module. Some examples here:
 
-```julia
+```
 julia> using LinearAlgebraX
 
 julia> A = rand(Int,5,5) .% 10  # create a random matrix with entries between -9 and 9.
