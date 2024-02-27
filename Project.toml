@@ -9,7 +9,7 @@ SimplePolynomials = "cc47b68c-3164-5771-a705-2bc0097375a0"
 
 [compat]
 julia = "1"
-Nemo = "0.36, 0.37, 0.38, 0.39, 0.40, 0.41, 0.42"
+Nemo = "0.36, 0.37, 0.38, 0.39, 0.40, 0.41, 0.42, 0.43, 0.44, 0.45"
 SimplePolynomials = "0.2"
 
 [extras]
