@@ -14,12 +14,22 @@ function _clear_denominators(F::SimplePolynomial)
 end
 
 """
-    has_p_root(F::SimplePolynomial, p::Int)
+    has_p_root(F::SimplePolynomial, p::Int)::Bool
 Test if the polynomial `F` has a `p`-adic root for a prime `p`.
-+ Returns `(true,a)` if `F` has a root. The value `a` satisfies `0 ≤ p < 1`, `F(a)=0 (mod p)` and `F'(a)≠0 (mod p)`.
-+ Otherwise, returns `(false,-1)`.
 """
-function has_p_root(F::SimplePolynomial, p::Int)::Tuple{Bool,Int}
+function has_p_root(F::SimplePolynomial, p::Int)::Bool
+    b, a = _has_p_root(F, p)
+    return b
+end
+
+
+"""
+    _has_p_root(F::SimplePolynomial, p::Int)
+
+Helper function for `has_p_root` that returns extra information 
+that is used by `p_root`.
+"""
+function _has_p_root(F::SimplePolynomial, p::Int)
     F = _clear_denominators(F)
     for a = 0:p-1
         if F(a) % p == 0 && F'(a) % p != 0
@@ -30,13 +40,14 @@ function has_p_root(F::SimplePolynomial, p::Int)::Tuple{Bool,Int}
 end
 
 
+
 """
     p_root(F::SimplePolynomial, p::Int)
 Find a `p`-adic root of the polynomial `F`.
 """
 function p_root(F::SimplePolynomial, p::Int)
     F = _clear_denominators(F)
-    (tst, a) = has_p_root(F, p)
+    (tst, a) = _has_p_root(F, p)
     if !tst
         error("This polynomial does not have a $p-adic root.")
     end

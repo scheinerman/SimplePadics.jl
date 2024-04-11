@@ -4,7 +4,7 @@ Easy to use and nicely formatted p-adic numbers (in base-p, place-value notation
 Everything rides on 
  [Nemo](https://github.com/Nemocas/Nemo.jl.git).
 
-
+> **Breaking change in version 0.2**: The function `has_p_root` just returns  a `Bool` value and not a 2-tuple.
 
 ## Basics
 
@@ -169,9 +169,8 @@ julia> t^2 + 1
 julia> sqrt(Padic{5}(-1))
 …3032431212.0_{5}
 ```
-The function `has_p_root(F,p)` tests if a polynomial has a `p`-adic root. Note that this
-function returns a 2-tuple whose first element is `true` if `F` has a root and `false` otherwise.
-The other value in the 2-tuple is used by `p_root` and may be ignored. 
+The function `has_p_root(F,p)` tests if a polynomial has a `p`-adic root. 
+Returns `true` if `F` has a root and `false` otherwise.
 
 
 

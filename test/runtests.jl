@@ -44,6 +44,6 @@ a = Padic{5}(100)
 
 x = getx()
 F = x^2 + 1
-@test has_p_root(F, 5)[1]
+@test has_p_root(F, 5)
 t = p_root(F, 5)
 @test F(t) == 0
