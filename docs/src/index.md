@@ -97,7 +97,7 @@ set the precision to the default value (10).
 The function `get_precision()` returns the current setting.
 
 
-**Warning**: `Padic` numbers created with different precisions cannot be compared for equality or combined in operations.
+> **Warning**: `Padic` numbers created with different precisions cannot be compared for equality or combined in operations.
 ```
 julia> a = Padic{5}(-1)
 …4444444444.0_{5}
