@@ -59,10 +59,9 @@ julia> inv(a)
 
 
 
+## Digits
 
-### Digits
-
-If the prime `p` is greater than 7, then we use letters to stand for digits beyond 9 (that is, a for ten, b for eleven, and so forth).
+When the prime `p` is greater than 7, we use letters to stand for digits beyond 9 (that is, `a` for ten, `b` for eleven, and so forth).
 ```
 julia> a = Padic{17}(1000)
 …37e.0_{17}
