@@ -8,7 +8,7 @@ Nemo = "2edaba10-b0f1-5616-af89-8c11ac63239a"
 SimplePolynomials = "cc47b68c-3164-5771-a705-2bc0097375a0"
 
 [compat]
-Nemo = "0.51, 0.52, 0.53, 0.54"
+Nemo = "0.51, 0.52, 0.53, 0.54, 0.55"
 SimplePolynomials = "0.2"
 julia = "1"
 
